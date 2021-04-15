@@ -1,6 +1,3 @@
-// *** Spawn unit script ***
-hint 'Start - spawn.sqf!';
-
 // TIME
 _spawnSleep = 5;
 _spawnCount = 90;
@@ -46,5 +43,3 @@ for [{private _i = 0}, {_i < _spawnCount}, {_i = _i + 1}] do {
 	_i call my_fnc;
 	sleep _spawnSleep;
 }; 
-
-hint 'Done - spawn.sqf!';
