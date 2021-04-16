@@ -14,6 +14,4 @@ if (isnil "DZ_fnc_MortarFire") then {
     };
 };
 
-hint 'Arta!';
-
 mf1 = ["R_60mm_HE", "mort_1", 180, 180, 35] spawn DZ_fnc_MortarFire;
