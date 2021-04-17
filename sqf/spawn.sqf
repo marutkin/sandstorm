@@ -2,9 +2,6 @@
 private _spawnDelaySeconds = 15;
 private _spawnSoldiersCount = 90;
 
-// GROUPS
-private _eastGrp = createGroup east;
-
 // MARKERS
 private _basicMarkerPosition = getMarkerPos "marker_1";
 private _eastMarkerPosition = getMarkerPos "marker_2";
