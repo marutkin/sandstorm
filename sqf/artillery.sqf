@@ -10,7 +10,7 @@ if (isnil "DZ_fnc_MortarFire") then {
         private _rounds = 100;
         while {_fire && _rounds > 0} do {
             _rounds = _rounds - 1;
-            _firerun = _ammo createvehicle [(getmarkerpos _marker select 0) + random _xcoord, (getmarkerpos _marker select 1) + random _ycoord, getmarkerpos _marker select 2];
+            _ammo createvehicle [(getmarkerpos _marker select 0) + random _xcoord, (getmarkerpos _marker select 1) + random _ycoord, getmarkerpos _marker select 2];
             sleep (random _timer);
         };
     };

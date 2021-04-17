@@ -11,9 +11,6 @@ private _eastMarkerPosition = getMarkerPos "marker_2";
 private _westMarkerPositionWest = getMarkerPos "marker_3";
 private _opforMarkerPosition = getMarkerPos "wp_1";
 
-// WAYPOINTS
-private _wp =_eastGrp addWaypoint [_opforMarkerPosition, 0];
-
 private _generateUnit = {
 	unitId = _this select 0;
 	markerPosition = _this select 1;
@@ -26,6 +23,8 @@ private _generateUnit = {
 
 private _defaultOpforUnitId = "O_soldier_F";
 private _eastGrp = createGroup east;
+_eastGrp addWaypoint [_opforMarkerPosition, 0];
+
 // LOADOUT
 private _opforLoadout = [
 	["rhs_weap_akms","","","",[],[],""],
