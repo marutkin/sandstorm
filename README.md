@@ -1,4 +1,5 @@
 # Sandstorm Arma 3
-Set of scripts for Arma 3 mission.
+Set of scripts for Arma 3 Afghanistan mission.
 
-[Afghanistan Map]: https://steamcommunity.com/sharedfiles/filedetails/?id=421620913
+Dependencies:
+[Afghanistan Map](https://steamcommunity.com/sharedfiles/filedetails/?id=421620913)
