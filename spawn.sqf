@@ -1,9 +1,9 @@
 // TIME
-_spawnSleep = 5;
-_spawnCount = 90;
+_spawnDelaySeconds = 15;
+_spawnSoldiersCount = 90;
 
 // GROUPS
-_east_grp = createGroup east;
+_eastGrp = createGroup east;
 
 // MARKERS
 _basicMarkerPosition = getMarkerPos "marker_1";
@@ -12,7 +12,7 @@ _basicMarkerPositionWest = getMarkerPos "marker_3";
 _opforMarkerPosition = getMarkerPos "wp_1";
 
 // WAYPOINTS
-_wp =_east_grp addWaypoint [_opforMarkerPosition, 0];
+_wp =_eastGrp addWaypoint [_opforMarkerPosition, 0];
 
 // LOADOUT
 _opforLoadout = [
@@ -25,21 +25,20 @@ _opforLoadout = [
 	"","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]
 ];
 
-my_fnc = {
-	// private _count = _this select 0;
+_getEastSoldier = {
 	if (_this % 2 == 0) then { 
-		unit = _east_grp createUnit ["O_soldier_F", _basicMarkerPosition, [], 0, "FORM"];
+		unit = _eastGrp createUnit ["O_soldier_F", _basicMarkerPosition, [], 0, "FORM"];
 		unit setUnitLoadout _opforLoadout;
 	} else { 
-		unit1 = _east_grp createUnit ["O_soldier_F", _basicMarkerPositionEast, [], 0, "FORM"];
-		unit2 = _east_grp createUnit ["O_soldier_F", _basicMarkerPositionWest, [], 0, "FORM"];
+		unit1 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionEast, [], 0, "FORM"];
+		unit2 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionWest, [], 0, "FORM"];
 		unit1 setUnitLoadout _opforLoadout;
 		unit2 setUnitLoadout _opforLoadout;
 	};
 };
 
-_i = _spawnCount; 
-for [{private _i = 0}, {_i < _spawnCount}, {_i = _i + 1}] do {
-	_i call my_fnc;
-	sleep _spawnSleep;
+_i = _spawnSoldiersCount; 
+for [{private _i = 0}, {_i < _spawnSoldiersCount}, {_i = _i + 1}] do {
+	_i call _getEastSoldier;
+	sleep _spawnDelaySeconds;
 }; 
