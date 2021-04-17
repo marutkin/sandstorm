@@ -25,16 +25,23 @@ _opforLoadout = [
 	"","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]
 ];
 
+_generateUnit = {
+	unitId = _this select 0;
+	markerPosition = _this select 1;
+	unit = _eastGrp createUnit [unitId, markerPosition, [], 0, "FORM"];
+	unit setUnitLoadout _opforLoadout;
+	unit;
+};
+
+_defaultOpforUnitId = "O_soldier_F";
+
 // GENERATE OPFOR SOLDIERS
 for "_i" from 1 to _spawnSoldiersCount do { 
 	if (_i % 2 == 0) then { 
-	unit = _eastGrp createUnit ["O_soldier_F", _basicMarkerPosition, [], 0, "FORM"];
-	unit setUnitLoadout _opforLoadout;
+		[_defaultOpforUnitId, _basicMarkerPosition] call _generateUnit;
 	} else { 
-		unit1 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionEast, [], 0, "FORM"];
-		unit2 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionWest, [], 0, "FORM"];
-		unit1 setUnitLoadout _opforLoadout;
-		unit2 setUnitLoadout _opforLoadout;
+		[_defaultOpforUnitId, _basicMarkerPositionEast] call _generateUnit;
+		[_defaultOpforUnitId, _basicMarkerPositionWest] call _generateUnit;
 	};
 	sleep _spawnDelaySeconds;
 };
