@@ -6,8 +6,8 @@ if (isnil "DZ_fnc_MortarFire") then {
         _xcoord = _this select 2;
         _ycoord = _this select 3;
         _timer = _this select 4;
-        _fire = true;
-        _rounds = 100;
+        private _fire = true;
+        private _rounds = 100;
         while {_fire && _rounds > 0} do {
             _rounds = _rounds - 1;
             _firerun = _ammo createvehicle [(getmarkerpos _marker select 0) + random _xcoord, (getmarkerpos _marker select 1) + random _ycoord, getmarkerpos _marker select 2];
