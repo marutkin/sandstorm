@@ -25,20 +25,16 @@ _opforLoadout = [
 	"","",[],["ItemMap","","ItemRadio","ItemCompass","ItemWatch",""]
 ];
 
-_getEastSoldier = {
-	if (_this % 2 == 0) then { 
-		unit = _eastGrp createUnit ["O_soldier_F", _basicMarkerPosition, [], 0, "FORM"];
-		unit setUnitLoadout _opforLoadout;
+// GENERATE OPFOR SOLDIERS
+for "_i" from 1 to _spawnSoldiersCount do { 
+	if (_i % 2 == 0) then { 
+	unit = _eastGrp createUnit ["O_soldier_F", _basicMarkerPosition, [], 0, "FORM"];
+	unit setUnitLoadout _opforLoadout;
 	} else { 
 		unit1 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionEast, [], 0, "FORM"];
 		unit2 = _eastGrp createUnit ["O_soldier_F", _basicMarkerPositionWest, [], 0, "FORM"];
 		unit1 setUnitLoadout _opforLoadout;
 		unit2 setUnitLoadout _opforLoadout;
 	};
-};
-
-_i = _spawnSoldiersCount; 
-for [{private _i = 0}, {_i < _spawnSoldiersCount}, {_i = _i + 1}] do {
-	_i call _getEastSoldier;
 	sleep _spawnDelaySeconds;
-}; 
+};
